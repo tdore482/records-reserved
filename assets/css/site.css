@@ -1955,6 +1955,13 @@ table.compare tr:last-child td {
   stroke-linejoin: round;
 }
 
+.wa-cta .wa-cta__send {
+  fill: currentColor;
+  stroke: none;
+  width: 15px;
+  height: 15px;
+}
+
 .form-card {
   background: var(--surface);
   border: 1px solid var(--line);
