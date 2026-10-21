@@ -52,6 +52,50 @@
     });
   }
 
+  /* ---------- Button splash ----------
+     Press feedback for every CTA: a blob blooms from the exact point that was
+     pressed (or from the centre on keyboard activation) and fades out. The
+     blob inherits the button's text colour, so it themes itself. */
+
+  if (!reduceMotion) {
+    var splashHost = ".btn, .lp-btn, .site-header--overlay .nav__login";
+
+    function spawnSplash(el, x, y) {
+      var rect = el.getBoundingClientRect();
+      var size = Math.max(rect.width, rect.height) * 2.4;
+      var dot = document.createElement("span");
+      dot.className = "btn-splash";
+      dot.style.width = size + "px";
+      dot.style.height = size + "px";
+      dot.style.left = x - rect.left - size / 2 + "px";
+      dot.style.top = y - rect.top - size / 2 + "px";
+      el.appendChild(dot);
+      dot.addEventListener("animationend", function () {
+        dot.remove();
+      });
+    }
+
+    function splashTarget(target) {
+      return target && target.closest ? target.closest(splashHost) : null;
+    }
+
+    document.addEventListener("pointerdown", function (event) {
+      var el = splashTarget(event.target);
+      if (el) spawnSplash(el, event.clientX, event.clientY);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.repeat) return;
+      if (event.key !== "Enter" && event.key !== " ") return;
+      var el = splashTarget(event.target);
+      if (!el) return;
+      /* Space does not activate a link, so do not pretend it did */
+      if (event.key === " " && el.tagName === "A") return;
+      var rect = el.getBoundingClientRect();
+      spawnSplash(el, rect.left + rect.width / 2, rect.top + rect.height / 2);
+    });
+  }
+
   /* ---------- Contact form: posts to FormSubmit, delivered to support ----------
      Static site: FormSubmit relays the submission to our inbox. The form
      action (which carries the inbox address) lives in contact.html. */
