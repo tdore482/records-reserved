@@ -1930,6 +1930,31 @@ table.compare tr:last-child td {
   color: rgba(6, 61, 42, 0.78);
 }
 
+.wa-cta {
+  justify-self: start;
+  margin-top: 8px;
+  background: #075e54;
+  border-color: #075e54;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 11px 18px;
+}
+
+.wa-cta:hover {
+  background: #064c45;
+  border-color: #064c45;
+}
+
+.wa-cta svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .form-card {
   background: var(--surface);
   border: 1px solid var(--line);
