@@ -311,8 +311,8 @@ h4 {
 /* ---------- Announcement bar ---------- */
 
 .announce {
-  background: var(--ink);
-  color: #ffffff;
+  background: var(--band);
+  color: var(--on-band);
   font-size: 13px;
   line-height: 1.4;
 }
@@ -329,16 +329,16 @@ h4 {
 }
 
 .announce a {
-  color: #ffffff;
+  color: var(--on-band);
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: rgba(255, 255, 255, 0.6);
+  text-decoration-color: rgba(245, 242, 237, 0.45);
   text-underline-offset: 3px;
 }
 
 .announce a:hover {
   text-decoration-color: var(--terra);
-  color: #ffffff;
+  color: #fff;
 }
 
 .announce__tag {
@@ -346,7 +346,7 @@ h4 {
   font-size: 10.5px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--band);
   background: var(--terra);
   border-radius: var(--radius-pill);
   padding: 3px 10px;
