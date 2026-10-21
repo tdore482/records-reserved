@@ -21,6 +21,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Jubble";
+  src: url("../fonts/Jubble-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ---------- Tokens ---------- */
 
 :root {
@@ -59,7 +67,7 @@
   --band-line: rgba(245, 242, 237, 0.14);
 
   /* type */
-  --font-display: "Instrument Serif", "Times New Roman", serif;
+  --font-display: "Jubble", "Manrope", "Segoe UI", system-ui, sans-serif;
   --font-body: "Manrope", "Segoe UI", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
   --font-brand: "Akira Expanded", "Manrope", sans-serif;
@@ -170,15 +178,15 @@ h4 {
 .h-hero {
   font-family: var(--font-display);
   font-size: clamp(44px, 7.2vw, 88px);
-  line-height: 1.02;
-  letter-spacing: -0.028em;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
 }
 
 .h-section {
   font-family: var(--font-display);
   font-size: clamp(34px, 4.6vw, 56px);
-  line-height: 1.06;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.006em;
 }
 
 .h-card {
@@ -232,6 +240,13 @@ h4 {
   line-height: 1;
   color: var(--terra);
   font-weight: 400;
+}
+
+.numeral {
+  font-family: "Instrument Serif", "Times New Roman", serif;
+  font-size: clamp(30px, 3.2vw, 44px);
+  line-height: 1;
+  letter-spacing: 0;
 }
 
 .text-center {
@@ -572,12 +587,12 @@ h4 {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 5px 11px;
+  padding: 6px 12px;
   border-radius: var(--radius-pill);
   border: 1px solid var(--line-strong);
   color: var(--muted);
@@ -606,6 +621,12 @@ h4 {
   background: var(--amber-pale);
   border-color: #eadfb8;
   color: var(--amber-ink);
+}
+
+.tag--ink {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff9f5;
 }
 
 .tag-row {
@@ -752,52 +773,77 @@ h4 {
 /* ---------- Trade strip ---------- */
 
 .trades {
-  border-block: 1px solid var(--line);
-  background: var(--surface);
-  padding: 34px 0;
+  background: var(--terra-deep);
+  color: #fff9f5;
+  padding: 16px 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
 }
 
-.trades__inner {
+.trades__track {
   display: flex;
-  flex-wrap: wrap;
+  width: max-content;
+  animation: trades-scroll 45s linear infinite;
+}
+
+.trades:hover .trades__track {
+  animation-play-state: paused;
+}
+
+.trades__group {
+  display: flex;
   align-items: center;
-  gap: 14px 28px;
+  white-space: nowrap;
+  padding-right: 44px;
 }
 
 .trades__label {
   font-family: var(--font-mono);
   font-size: 11.5px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted-light);
-  margin-right: 8px;
+  color: rgba(255, 249, 245, 0.72);
+  margin-right: 4px;
 }
 
-.trades ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 22px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.trades li {
-  font-size: 14.5px;
+.trades__item {
+  font-size: 15px;
   font-weight: 500;
-  color: var(--ink-soft);
+  color: #fff9f5;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
 }
 
-.trades li::before {
+.trades__item::before {
   content: "";
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--terra);
-  opacity: 0.7;
+  background: rgba(255, 249, 245, 0.55);
+  margin: 0 22px;
+}
+
+@keyframes trades-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trades__track {
+    animation: none;
+  }
+  .trades__group + .trades__group {
+    display: none;
+  }
+  .trades {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }
 
 /* ---------- Section heads ---------- */
@@ -890,7 +936,7 @@ h4 {
   height: 18px;
   stroke: currentColor;
   fill: none;
-  stroke-width: 1.6;
+  stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -904,6 +950,72 @@ h4 {
 
 .bento__card .h-card {
   margin: 0;
+}
+
+.bento__card--dark {
+  background: var(--band);
+  border-color: var(--band);
+}
+
+.bento__card--dark:hover {
+  border-color: #3d3a33;
+  box-shadow: 0 3px 14px rgba(28, 27, 25, 0.22);
+}
+
+.bento__card--dark .h-card {
+  color: var(--on-band);
+}
+
+.bento__card--dark p {
+  color: var(--on-band-muted);
+}
+
+.bento__card--dark .bento__icon {
+  background: rgba(245, 242, 237, 0.08);
+  border-color: rgba(245, 242, 237, 0.22);
+  color: #e3a87f;
+}
+
+.bento__card--dark .tag {
+  background: rgba(245, 242, 237, 0.08);
+  border-color: rgba(245, 242, 237, 0.24);
+  color: var(--on-band-muted);
+}
+
+.bento__card--terra {
+  background: var(--terra-deep);
+  border-color: var(--terra-deep);
+}
+
+.bento__card--terra:hover {
+  border-color: #8e4322;
+  box-shadow: 0 3px 14px rgba(163, 79, 42, 0.28);
+}
+
+.bento__card--terra .h-card {
+  color: #ffffff;
+}
+
+.bento__card--terra p {
+  color: #ffffff;
+}
+
+.bento__card--terra .bento__icon {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.32);
+  color: #fff9f5;
+}
+
+.bento__card--terra .tag:not([class*="tag--"]) {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.34);
+  color: #fff9f5;
+}
+
+.bento__card--terra .tag--amber,
+.bento__card--terra .tag--blue,
+.bento__card--terra .tag--green {
+  border-color: transparent;
 }
 
 /* ---------- Three modes (product / service / rental) ---------- */
@@ -1348,9 +1460,10 @@ h4 {
   position: absolute;
   top: -11px;
   left: 26px;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 10.5px;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   background: var(--terra);
   color: #fff;
@@ -1358,10 +1471,108 @@ h4 {
   border-radius: var(--radius-pill);
 }
 
+.plan--terra {
+  background: var(--terra-deep);
+  border-color: var(--terra-deep);
+}
+
+.plan--terra .plan__name,
+.plan--terra .plan__amount {
+  color: #ffffff;
+}
+
+.plan--terra .plan__for,
+.plan--terra .plan__note,
+.plan--terra .plan__period {
+  color: #ffffff;
+}
+
+.plan--terra .plan__price {
+  border-top-color: rgba(255, 249, 245, 0.28);
+}
+
+.plan--terra li {
+  color: #ffffff;
+}
+
+.plan--terra li::before {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2 5 8.7l4.5-5' fill='none' stroke='%23fff9f5' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 11px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.plan--dark {
+  background: var(--band);
+  border-color: var(--band);
+}
+
+.plan--dark .plan__name,
+.plan--dark .plan__amount {
+  color: var(--on-band);
+}
+
+.plan--dark .plan__for,
+.plan--dark .plan__note,
+.plan--dark .plan__period {
+  color: var(--on-band-muted);
+}
+
+.plan--dark .plan__price {
+  border-top-color: var(--band-line);
+}
+
+.plan--dark li {
+  color: rgba(245, 242, 237, 0.9);
+}
+
+.plan--dark li::before {
+  background: rgba(245, 242, 237, 0.1);
+  border-color: rgba(245, 242, 237, 0.32);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2 5 8.7l4.5-5' fill='none' stroke='%23f5f2ed' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 11px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.plan--terra.plan--featured::before {
+  background: #fff9f5;
+  color: var(--terra-deep);
+}
+
+.plan--terra .btn,
+.plan--dark .btn {
+  background: #fff9f5;
+  color: #7a3a1d;
+  border-color: #fff9f5;
+}
+
+.plan--terra .btn:hover,
+.plan--dark .btn:hover {
+  background: #f5e8df;
+  border-color: #f5e8df;
+}
+
+.plan--terra .btn--ghost,
+.plan--dark .btn--ghost {
+  background: transparent;
+  color: #fff9f5;
+  border-color: rgba(255, 249, 245, 0.45);
+}
+
+.plan--terra .btn--ghost:hover,
+.plan--dark .btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 249, 245, 0.75);
+}
+
 .plan__name {
+  font-family: var(--font-brand);
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   margin: 0;
 }
 
@@ -1381,9 +1592,9 @@ h4 {
 }
 
 .plan__amount {
-  font-family: var(--font-display);
-  font-size: 42px;
-  letter-spacing: -0.02em;
+  font-family: var(--font-brand);
+  font-size: clamp(28px, 2.4vw, 34px);
+  letter-spacing: 0;
   line-height: 1;
 }
 
@@ -1613,6 +1824,47 @@ table.compare tr:last-child td {
 .contact-card .hint {
   font-size: 13.5px;
   color: var(--muted);
+}
+
+.contact-card--whatsapp {
+  background: #55d98a;
+  border-color: #55d98a;
+}
+
+.contact-card--whatsapp:hover {
+  border-color: #25d366;
+  box-shadow: 0 3px 14px rgba(37, 211, 102, 0.32);
+}
+
+.contact-card--whatsapp .label {
+  color: #0a5c3d;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wa-badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #075e54;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.wa-logo {
+  width: 12px;
+  height: 12px;
+  fill: #ffffff;
+}
+
+.contact-card--whatsapp .value {
+  color: #063d2a;
+}
+
+.contact-card--whatsapp .hint {
+  color: rgba(6, 61, 42, 0.78);
 }
 
 .form-card {

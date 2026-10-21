@@ -1,4 +1,4 @@
-/* Records Reserved — marketing site behaviour
+/* Records Reserved | marketing site behaviour
    Reveals, mobile nav, contact form hand-off. No dependencies. */
 
 (function () {
@@ -52,9 +52,9 @@
     });
   }
 
-  /* ---------- Contact form — posts to Web3Forms, delivered to support ----------
-     Static site: Web3Forms relays the submission to our inbox. The access
-     key lives in a hidden input in contact.html. */
+  /* ---------- Contact form: posts to FormSubmit, delivered to support ----------
+     Static site: FormSubmit relays the submission to our inbox. The form
+     action (which carries the inbox address) lives in contact.html. */
 
   var form = document.querySelector("#contact-form");
 
@@ -66,10 +66,14 @@
     form.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      var data = new FormData(form);
-      var accessKey = String(data.get("access_key") || "").trim();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
 
-      if (!accessKey || accessKey === "YOUR_WEB3FORMS_ACCESS_KEY") {
+      var endpoint = String(form.action || "");
+
+      if (endpoint.indexOf("formsubmit.co/") === -1 || endpoint.indexOf("@") === -1) {
         if (status) {
           status.textContent =
             "This form is not connected yet. Write to us directly at " +
@@ -79,47 +83,43 @@
         return;
       }
 
-      var name = String(data.get("name") || "").trim();
-      var business = String(data.get("business") || "").trim();
-      var email = String(data.get("email") || "").trim();
-      var phone = String(data.get("phone") || "").trim();
+      var data = new FormData(form);
       var interest = String(data.get("interest") || "").trim();
+      var business = String(data.get("business") || "").trim();
 
       data.set(
-        "subject",
-        "Records Reserved enquiry — " + (interest || "General") +
-          (business ? " — " + business : "")
+        "_subject",
+        "Records Reserved enquiry: " + (interest || "General") +
+          (business ? ", " + business : "")
       );
-      data.append("_replyto", email);
-      data.append(
-        "body",
-        [
-          "Name: " + name,
-          "Business: " + (business || "—"),
-          "Email: " + email,
-          "Phone: " + (phone || "—"),
-          "Interested in: " + (interest || "General"),
-        ].join("\n")
-      );
+
+      var payload = {};
+      data.forEach(function (value, key) {
+        payload[key] = value;
+      });
 
       if (button) {
         button.disabled = true;
         button.textContent = "Sending…";
       }
 
-      fetch(form.action, {
+      fetch(endpoint.replace("formsubmit.co/", "formsubmit.co/ajax/"), {
         method: "POST",
-        body: data,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
       })
         .then(function (response) {
           return response.json();
         })
         .then(function (result) {
-          if (result.success) {
+          if (result.success === true || result.success === "true") {
             form.reset();
             if (status) {
               status.textContent =
-                "Thank you — your enquiry is on its way to " + SUPPORT_EMAIL +
+                "Thank you, your enquiry is on its way to " + SUPPORT_EMAIL +
                 ". We reply within the working day.";
               status.classList.add("is-visible");
             }
@@ -127,12 +127,16 @@
             throw new Error(result.message || "Submission failed");
           }
         })
-        .catch(function () {
+        .catch(function (error) {
           if (status) {
             status.textContent =
-              "That did not send. Please write to us directly at " +
+              "That did not send (" + (error && error.message ? error.message : "network error") +
+              "). Please write to us directly at " +
               SUPPORT_EMAIL + " or call +265 998 814 732.";
             status.classList.add("is-visible");
+          }
+          if (window.console && console.error) {
+            console.error("FormSubmit submission failed:", error);
           }
         })
         .finally(function () {
