@@ -2769,6 +2769,16 @@ table.compare tr:last-child td {
   transform: scale(0.98);
 }
 
+/* the send arrow on the hero call to action is the same mark as the one on
+   the WhatsApp card */
+.lp-cta__send {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  fill: currentColor;
+  stroke: none;
+}
+
 .lp-btn--terra {
   background: var(--lp-cta);
   color: #fff;
