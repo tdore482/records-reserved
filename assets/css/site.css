@@ -1647,6 +1647,12 @@ h4 {
   line-height: 1.5;
 }
 
+.plan--terra li,
+.plan--dark li,
+.plan--featured li {
+  color: #ffffff;
+}
+
 .plan li::before {
   content: "";
   position: absolute;
