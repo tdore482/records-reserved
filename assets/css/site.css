@@ -2488,13 +2488,13 @@ table.compare tr:last-child td {
   /* the dismiss button gets its own strip on the right, so the message keeps
      the width it had before and the bar does not grow a line */
   .announce__inner {
-    padding: 8px calc(var(--gutter) + 16px) 8px var(--gutter);
+    padding: 8px 30px 8px 12px;
   }
 
   .announce__close {
     width: 24px;
     height: 24px;
-    right: 4px;
+    right: 2px;
   }
 
   .hero-media__grid {
@@ -2814,6 +2814,8 @@ table.compare tr:last-child td {
   .lp-hero__content {
     padding-top: 112px;
     padding-bottom: 0;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .lp-hero__note {
@@ -2821,18 +2823,22 @@ table.compare tr:last-child td {
     padding-bottom: 18px;
   }
 
+  /* one call to action on a phone: the secondary link is dropped and the
+     primary is kept compact so the photo stays in view */
   .lp-hero__actions {
     width: 100%;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .lp-hero__actions .lp-btn--glass {
+    display: none;
   }
 
   .lp-btn {
-    width: 100%;
-  }
-
-  /* the secondary action needs more room to breathe on a narrow screen */
-  .lp-btn--glass {
-    padding: 22px 30px;
+    width: auto;
+    padding: 13px 22px;
+    font-size: 14px;
   }
 
   /* a phone frame is far taller than the photo: zoom in and pin the top of the
