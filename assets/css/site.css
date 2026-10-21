@@ -637,10 +637,28 @@ h4 {
 
 /* ---------- Hero ---------- */
 
-.hero {
-  padding: clamp(56px, 8vw, 104px) 0 clamp(40px, 5vw, 64px);
-  position: relative;
-  overflow: hidden;
+.hero--friendly {
+  padding: clamp(72px, 10vw, 128px) 0 clamp(48px, 6vw, 80px);
+}
+
+.hero__inner--center {
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+}
+
+.hero__inner--center .lede {
+  max-width: 780px;
+}
+
+.hero__inner--center .hero__actions {
+  justify-content: center;
+}
+
+.h-hero--two-line {
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 
 .hero::before {
