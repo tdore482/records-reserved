@@ -2813,7 +2813,7 @@ table.compare tr:last-child td {
 
   .lp-hero__content {
     padding-top: 112px;
-    padding-bottom: 0;
+    padding-bottom: 32px;
     padding-left: 16px;
     padding-right: 16px;
   }
