@@ -1826,6 +1826,28 @@ table.compare tr:last-child td {
   color: var(--muted);
 }
 
+.contact-card--rr {
+  background: var(--terra-deep);
+  border-color: var(--terra-deep);
+}
+
+.contact-card--rr:hover {
+  border-color: #8e4322;
+  box-shadow: 0 3px 14px rgba(163, 79, 42, 0.32);
+}
+
+.contact-card--rr .label {
+  color: rgba(255, 249, 245, 0.75);
+}
+
+.contact-card--rr .value {
+  color: #ffffff;
+}
+
+.contact-card--rr .hint {
+  color: rgba(255, 249, 245, 0.78);
+}
+
 .contact-card--whatsapp {
   background: #55d98a;
   border-color: #55d98a;
