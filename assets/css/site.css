@@ -1511,13 +1511,13 @@ h4 {
 
 .plan--dark .plan__name,
 .plan--dark .plan__amount {
-  color: var(--on-band);
+  color: #ffffff;
 }
 
 .plan--dark .plan__for,
 .plan--dark .plan__note,
 .plan--dark .plan__period {
-  color: var(--on-band-muted);
+  color: #ffffff;
 }
 
 .plan--dark .plan__price {
@@ -1525,7 +1525,7 @@ h4 {
 }
 
 .plan--dark li {
-  color: rgba(245, 242, 237, 0.9);
+  color: #ffffff;
 }
 
 .plan--dark li::before {
