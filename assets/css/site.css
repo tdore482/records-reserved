@@ -2587,15 +2587,15 @@ table.compare tr:last-child td {
 .lp-hero {
   --lp-cta: var(--terra);       /* brand terracotta, matching the platform CTAs */
   --lp-cta-hover: var(--terra-deep);
+  --lp-band: 78px;              /* caption band under the photo */
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: clamp(640px, 100svh, 980px);
+  min-height: calc(50vw + var(--lp-band));
   overflow: hidden;
   isolation: isolate;
   color: var(--ink);
-  /* shows until the hero photo is dropped in */
-  background: linear-gradient(180deg, #8fc0ec 0%, #cfe3f1 48%, #7ea48a 100%);
+  background: var(--band);
 }
 
 .lp-hero__bg {
@@ -2610,35 +2610,38 @@ table.compare tr:last-child td {
   height: 100%;
 }
 
+/* the photo keeps its own 2:1 frame: the img box matches the photo area, so the
+   whole picture shows uncropped on desktop and tablet, and only mobile crops */
 .lp-hero__img {
   width: 100%;
-  height: 100%;
+  height: calc(100% - var(--lp-band));
   max-width: none;
   object-fit: cover;
-  object-position: 50% 80%;
+  object-position: 50% 0%;
 }
 
-/* soft light at the top for the nav + headline, soft dark at the base for the note */
+/* soft light at the top for the nav + headline, soft dark at the base so the
+   photo eases down into the caption band */
 .lp-hero__bg::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 0 0 var(--lp-band) 0;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 38%),
-    linear-gradient(0deg, rgba(10, 20, 14, 0.3) 0%, rgba(10, 20, 14, 0) 34%);
+    linear-gradient(0deg, rgba(10, 20, 14, 0.4) 0%, rgba(10, 20, 14, 0.12) 22%, rgba(10, 20, 14, 0) 46%);
   pointer-events: none;
 }
 
 /* ---------- Centered content ---------- */
 
 .lp-hero__content {
-  flex: 1;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
-  padding: clamp(92px, 8.5vw, 124px) var(--gutter) 0;
+  padding: clamp(116px, 8.6vw, 132px) var(--gutter) 0;
 }
 
 .lp-hero__title {
@@ -2668,16 +2671,20 @@ table.compare tr:last-child td {
   margin-top: clamp(24px, 2.4vw, 34px);
 }
 
-/* sits on the floor of the hero, clear of the centred headline block */
+/* caption band: the reassurance line sits on the black strip, like the
+   announce bar at the top of the page */
 .lp-hero__note {
-  position: relative;
-  width: 100%;
-  max-width: 460px;
-  margin: 0 auto;
-  padding: 0 var(--gutter) clamp(24px, 3vw, 44px);
+  flex: 0 0 auto;
+  min-height: var(--lp-band);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 16px max(var(--gutter), calc((100% - 520px) / 2));
+  background: var(--band);
   font-size: 13px;
   line-height: 1.5;
-  color: rgba(28, 27, 25, 0.68);
+  color: rgba(245, 242, 237, 0.9);
   text-align: center;
 }
 
@@ -2753,8 +2760,8 @@ table.compare tr:last-child td {
   }
 
   .lp-hero__note {
-    padding-top: 32px;
-    padding-bottom: 40px;
+    padding-top: 18px;
+    padding-bottom: 18px;
   }
 
   .lp-hero__actions {
