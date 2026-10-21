@@ -57,7 +57,7 @@
   <header class="site-header">
     <div class="container nav">
       <a class="nav__brand" href="index.html" aria-label="Records Reserved home">
-        <img src="assets/img/logo-black.png" alt="Records Reserved" width="160" height="34">
+        <img src="assets/img/logo-black.png" alt="Records Reserved" width="627" height="225">
       </a>
       <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span></button>
       <ul class="nav__links">
@@ -78,11 +78,15 @@
     <!-- Hero -->
     <section class="hero hero--friendly hero--image">
       <div class="hero__bg" aria-hidden="true">
-        <img class="hero__bg-img" src="assets/img/HERO-SECTION.png" alt="Records Reserved platform preview" width="1920" height="1080" fetchpriority="high" decoding="async">
+        <picture>
+          <source type="image/webp" srcset="assets/img/hero-640.webp 640w, assets/img/hero-960.webp 960w, assets/img/hero-1280.webp 1280w, assets/img/hero-1774.webp 1774w" sizes="100vw">
+          <source type="image/jpeg" srcset="assets/img/hero-640.jpg 640w, assets/img/hero-960.jpg 960w, assets/img/hero-1280.jpg 1280w, assets/img/hero-1774.jpg 1774w" sizes="100vw">
+          <img class="hero__bg-img" src="assets/img/hero-1280.jpg" alt="Records Reserved platform preview" width="1280" height="640" fetchpriority="high" decoding="async">
+        </picture>
       </div>
       <div class="container hero__inner hero__inner--center hero__inner--on-image">
         <h1 class="h-hero h-hero--two-line">One calm place for your<br>business's records</h1>
-        <p class="lede">Records Reserved is the point-of-sale and business management platform for shops, workshops, salons and hire fleets. Choose your business type when you sign up: the catalogue, units and SKU format arrive already shaped around your trade. Thirty suggestions to start from; yours does not need to be one of them.</p>
+        <p class="lede">One platform. Every business. Records Reserved simplifies sales, stock and business management with tools tailored to your trade&mdash;ready from day one.</p>
         <div class="hero__actions">
           <a class="btn btn--terra" href="https://mwkpos.vercel.app" target="_blank" rel="noopener">Start your 7 free days →</a>
           <a class="btn btn--ghost-on-dark" href="features.html">See what it does</a>
@@ -401,7 +405,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/img/logo-terracotta.png" alt="Records Reserved" width="170" height="36">
+          <img src="assets/img/logo-terracotta.png" alt="Records Reserved" width="631" height="233">
           <p>Point of sale, inventory, services and hire: one record for the whole business. Built for trades across Malawi and beyond.</p>
         </div>
         <div class="footer-col">

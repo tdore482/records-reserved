@@ -667,7 +667,16 @@ h4 {
   z-index: 0;
 }
 
+.hero--image .hero__bg picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero--image .hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   opacity: 1;
   object-position: 62% 50%;
   filter: brightness(0.95) contrast(1.02);
@@ -790,6 +799,12 @@ h4 {
   border: 1px solid var(--line);
   background: var(--surface);
   min-height: 340px;
+}
+
+.hero-media__main picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-media__main img,
@@ -1182,6 +1197,12 @@ h4 {
   overflow: hidden;
   border: 1px solid var(--line);
   background: var(--surface);
+}
+
+.split__media picture {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
 }
 
 .split__media img {
@@ -2419,14 +2440,22 @@ table.compare tr:last-child td {
 
 
 /* =====================================================================
-   Landing hero (full-bleed image, floating nav, glass badge, stats bar)
+   Landing hero (full-bleed image, floating nav, terracotta CTAs)
    Namespaced .lp-* so existing .hero rules on inner pages are untouched.
    ===================================================================== */
+
+/* ---------- Black announce bar pinned to the very top ---------- */
+
+.announce--top {
+  position: relative;
+  z-index: 101;
+}
 
 /* ---------- Floating nav over the hero ---------- */
 
 .site-header--overlay {
   position: fixed;
+  top: var(--announce-offset, 0px);
   left: 0;
   right: 0;
   background: transparent;
@@ -2477,7 +2506,8 @@ table.compare tr:last-child td {
   gap: 8px;
 }
 
-.site-header--overlay .btn--primary {
+.site-header--overlay .btn--primary,
+.site-header--overlay .btn--terra {
   padding: 12px 22px;
   border-radius: var(--radius-pill);
 }
@@ -2504,8 +2534,8 @@ table.compare tr:last-child td {
 /* ---------- Hero shell ---------- */
 
 .lp-hero {
-  --lp-cta: var(--ink);          /* swap to var(--terra) for a brand-orange CTA */
-  --lp-cta-hover: #33312d;
+  --lp-cta: var(--terra);       /* brand terracotta, matching the platform CTAs */
+  --lp-cta-hover: var(--terra-deep);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -2523,6 +2553,12 @@ table.compare tr:last-child td {
   z-index: -1;
 }
 
+.lp-hero__bg picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .lp-hero__img {
   width: 100%;
   height: 100%;
@@ -2531,7 +2567,7 @@ table.compare tr:last-child td {
   object-position: 50% 80%;
 }
 
-/* soft light at the top for the nav + headline, soft dark at the base for the stats bar */
+/* soft light at the top for the nav + headline, soft dark at the base for the note */
 .lp-hero__bg::after {
   content: "";
   position: absolute;
@@ -2553,42 +2589,6 @@ table.compare tr:last-child td {
   text-align: center;
   padding: clamp(92px, 8.5vw, 124px) var(--gutter) clamp(28px, 3.4vw, 52px);
 }
-
-.lp-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin: 0 0 clamp(22px, 2.6vw, 36px);
-  padding: 6px 20px 6px 7px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.3;
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.38);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: var(--radius-pill);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.lp-badge__faces {
-  display: inline-flex;
-  flex: none;
-}
-
-.lp-badge__faces i {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  margin-left: -9px;
-}
-
-.lp-badge__faces i:first-child { margin-left: 0; background: var(--terra-line); }
-.lp-badge__faces i:nth-child(2) { background: #b9d3b5; }
-.lp-badge__faces i:nth-child(3) { background: #b7d4ee; }
-.lp-badge__faces i:nth-child(4) { background: #ecd69a; }
-.lp-badge__faces i:nth-child(5) { background: var(--terra); }
 
 .lp-hero__title {
   margin: 0;
@@ -2649,12 +2649,12 @@ table.compare tr:last-child td {
   transform: scale(0.98);
 }
 
-.lp-btn--dark {
+.lp-btn--terra {
   background: var(--lp-cta);
   color: #fff;
 }
 
-.lp-btn--dark:hover {
+.lp-btn--terra:hover {
   background: var(--lp-cta-hover);
   color: #fff;
 }
@@ -2672,53 +2672,9 @@ table.compare tr:last-child td {
   color: var(--ink);
 }
 
-/* ---------- Stats bar ---------- */
-
-.lp-stats {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  width: min(56%, 820px);
-  min-width: 560px;
-  margin: 0 auto clamp(16px, 2.4vw, 34px);
-  padding: clamp(14px, 1.6vw, 22px) clamp(20px, 2.4vw, 40px);
-  color: #fff;
-  text-align: center;
-  background: rgba(52, 60, 70, 0.42);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: var(--radius-pill);
-  backdrop-filter: blur(16px) saturate(1.1);
-  -webkit-backdrop-filter: blur(16px) saturate(1.1);
-}
-
-.lp-stats li {
-  display: grid;
-  gap: 2px;
-  padding-inline: 8px;
-}
-
-.lp-stats strong {
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3.1vw, 46px);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-}
-
-.lp-stats span {
-  font-size: clamp(11.5px, 0.9vw, 13.5px);
-  line-height: 1.3;
-  color: rgba(255, 255, 255, 0.86);
-}
-
 /* ---------- Responsive ---------- */
 
 @media (max-width: 920px) {
-  .lp-stats {
-    width: calc(100% - var(--gutter) * 2);
-    min-width: 0;
-  }
-
   /* the mobile nav panel needs a surface behind its links */
   .site-header--overlay .nav__toggle {
     background: rgba(255, 255, 255, 0.5);
@@ -2740,17 +2696,6 @@ table.compare tr:last-child td {
     padding-bottom: 56px;
   }
 
-  .lp-badge {
-    font-size: 13px;
-    text-align: left;
-  }
-
-  .lp-badge__faces i {
-    width: 26px;
-    height: 26px;
-    margin-left: -8px;
-  }
-
   .lp-hero__actions {
     width: 100%;
     flex-direction: column;
@@ -2758,12 +2703,5 @@ table.compare tr:last-child td {
 
   .lp-btn {
     width: 100%;
-  }
-
-  .lp-stats {
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 14px;
-    border-radius: 28px;
-    padding: 18px 16px;
   }
 }
