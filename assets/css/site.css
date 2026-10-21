@@ -2823,16 +2823,11 @@ table.compare tr:last-child td {
     padding-bottom: 18px;
   }
 
-  /* one call to action on a phone: the secondary link is dropped and the
-     primary is kept compact so the photo stays in view */
+  /* both calls to action stay, kept compact so the photo shows through */
   .lp-hero__actions {
     width: 100%;
     flex-direction: row;
     justify-content: center;
-  }
-
-  .lp-hero__actions .lp-btn--glass {
-    display: none;
   }
 
   .lp-btn {
