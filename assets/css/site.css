@@ -1060,7 +1060,8 @@ h4 {
   border-radius: 0;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  align-self: flex-start;
   color: var(--terra-deep);
   flex-shrink: 0;
 }
