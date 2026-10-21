@@ -658,7 +658,7 @@ h4 {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(28, 27, 25, 0.72) 0%, rgba(28, 27, 25, 0.84) 100%);
+  background: linear-gradient(90deg, rgba(28, 27, 25, 0.96) 0%, rgba(28, 27, 25, 0.8) 38%, rgba(28, 27, 25, 0.38) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -668,8 +668,9 @@ h4 {
 }
 
 .hero--image .hero__bg-img {
-  opacity: 0.9;
-  object-position: 50% 40%;
+  opacity: 1;
+  object-position: 62% 50%;
+  filter: brightness(0.95) contrast(1.02);
 }
 
 .hero__inner--on-image .h-hero,
@@ -698,12 +699,25 @@ h4 {
   gap: 20px;
 }
 
+.hero__inner--on-image {
+  text-align: left;
+  justify-items: start;
+}
+
 .hero__inner--center .lede {
   max-width: 780px;
 }
 
+.hero__inner--on-image .lede {
+  max-width: 620px;
+}
+
 .hero__inner--center .hero__actions {
   justify-content: center;
+}
+
+.hero__inner--on-image .hero__actions {
+  justify-content: flex-start;
 }
 
 .h-hero--two-line {
