@@ -2547,6 +2547,14 @@ table.compare tr:last-child td {
 .site-header--overlay .btn--terra {
   padding: 12px 22px;
   border-radius: var(--radius-sm);
+  background: var(--ink);
+  color: #fff;
+}
+
+.site-header--overlay .btn--primary:hover,
+.site-header--overlay .btn--terra:hover {
+  background: #33312d;
+  color: #fff;
 }
 
 .site-header--overlay .nav__login {
@@ -2555,14 +2563,16 @@ table.compare tr:last-child td {
   padding: 12px 22px;
   line-height: 1.2;
   font-weight: 600;
-  color: #fff;
-  background: var(--ink);
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line-strong);
   border-radius: var(--radius-sm);
-  transition: background 160ms ease, color 160ms ease, transform 120ms ease;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 120ms ease;
 }
 
 .site-header--overlay .nav__login:hover {
   background: var(--terra-deep);
+  border-color: var(--terra-deep);
   color: #fff;
 }
 
