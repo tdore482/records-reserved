@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>try{if(localStorage.getItem("rr-announce-dismissed")==="1"){document.documentElement.classList.add("announce-dismissed");}}catch(e){}</script>
   <title>Records Reserved | Point of sale, stock, services &amp; hire in one record</title>
   <meta name="description" content="Records Reserved is a point-of-sale and business management platform for shops, workshops, salons and hire fleets. Sell products, book services or hire out equipment, your first 7 days are on us.">
   <meta property="og:title" content="Records Reserved">
@@ -45,11 +46,14 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Announcement -->
-  <div class="announce">
+  <div class="announce" data-announce>
     <div class="announce__inner">
       <span class="announce__tag">Free trial</span>
       <span>Your first <strong>7 days are on us</strong>. Every feature, no card needed.</span>
       <a href="https://mwkpos.vercel.app" target="_blank" rel="noopener">Start now</a>
+      <button class="announce__close" type="button" data-announce-close aria-label="Dismiss announcement">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      </button>
     </div>
   </div>
 

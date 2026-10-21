@@ -315,6 +315,7 @@ h4 {
   color: var(--on-band);
   font-size: 13px;
   line-height: 1.4;
+  position: relative;
 }
 
 .announce__inner {
@@ -323,9 +324,46 @@ h4 {
   justify-content: center;
   gap: 12px;
   min-height: 40px;
-  padding: 8px var(--gutter);
+  padding: 8px calc(var(--gutter) + 30px);
   text-align: center;
   flex-wrap: wrap;
+}
+
+/* Dismiss control: the bar can be closed for good */
+.announce__close {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--on-band);
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 180ms ease, background 180ms ease;
+}
+
+.announce__close:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.announce__close:focus-visible {
+  opacity: 1;
+  outline: 2px solid var(--terra);
+  outline-offset: 2px;
+}
+
+/* Set before first paint so a dismissed bar never flashes back in */
+html.announce-dismissed [data-announce] {
+  display: none;
 }
 
 .announce a {
@@ -334,6 +372,7 @@ h4 {
   text-decoration: underline;
   text-decoration-color: rgba(245, 242, 237, 0.45);
   text-underline-offset: 3px;
+  white-space: nowrap;
 }
 
 .announce a:hover {
@@ -350,6 +389,7 @@ h4 {
   background: var(--terra);
   border-radius: var(--radius-pill);
   padding: 3px 10px;
+  white-space: nowrap;
 }
 
 /* ---------- Header / nav ---------- */
@@ -2369,9 +2409,14 @@ table.compare tr:last-child td {
 }
 
 @media (max-width: 920px) {
-  .nav__links,
-  .nav__login {
+  .nav__links {
     display: none;
+  }
+
+  /* the sign-in link stays in the bar: it is a call to action, not a page link */
+  .nav__login {
+    display: inline-flex;
+    align-items: center;
   }
 
   .nav__toggle {
@@ -2438,6 +2483,18 @@ table.compare tr:last-child td {
 @media (max-width: 640px) {
   :root {
     --gutter: 18px;
+  }
+
+  /* the dismiss button gets its own strip on the right, so the message keeps
+     the width it had before and the bar does not grow a line */
+  .announce__inner {
+    padding: 8px calc(var(--gutter) + 16px) 8px var(--gutter);
+  }
+
+  .announce__close {
+    width: 24px;
+    height: 24px;
+    right: 4px;
   }
 
   .hero-media__grid {
@@ -2771,5 +2828,64 @@ table.compare tr:last-child td {
 
   .lp-btn {
     width: 100%;
+  }
+
+  /* the secondary action needs more room to breathe on a narrow screen */
+  .lp-btn--glass {
+    padding: 22px 30px;
+  }
+
+  /* a phone frame is far taller than the photo: zoom in and pin the top of the
+     picture so the busy middle of the frame carries the lower half of the screen */
+  .lp-hero__img {
+    height: calc(100% - var(--lp-band) + 130px);
+    object-position: 50% 0%;
+  }
+}
+
+/* ---------- Narrow phones: the header bar has to stay on one line ---------- */
+
+@media (max-width: 480px) {
+  .nav.container,
+  .site-header--overlay .nav.container {
+    gap: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .nav__brand {
+    min-width: 0;
+  }
+
+  .nav__brand img,
+  .site-header--overlay .nav__brand img {
+    height: 24px;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .nav__toggle {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 auto;
+  }
+
+  .nav__actions {
+    gap: 6px;
+  }
+
+  /* both calls to action get the same box so they sit on one baseline */
+  .nav__login,
+  .site-header--overlay .nav__login,
+  .nav__actions .btn,
+  .site-header--overlay .nav__actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    padding: 0 11px;
+    font-size: 12.5px;
+    line-height: 1;
+    white-space: nowrap;
   }
 }

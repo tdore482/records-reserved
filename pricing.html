@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>try{if(localStorage.getItem("rr-announce-dismissed")==="1"){document.documentElement.classList.add("announce-dismissed");}}catch(e){}</script>
   <title>Pricing | Records Reserved</title>
   <meta name="description" content="Three plans: Standard K25,000, Pro K50,000 and Enterprise K75,000 a month. Your first 7 days are on us. Every feature, no card needed. Compare what each plan unlocks.">
   <meta property="og:title" content="Records Reserved">
@@ -27,11 +28,14 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="announce">
+  <div class="announce" data-announce>
     <div class="announce__inner">
       <span class="announce__tag">Free trial</span>
       <span>Your first <strong>7 days are on us</strong>. Every feature, no card needed.</span>
       <a href="https://mwkpos.vercel.app" target="_blank" rel="noopener">Start now</a>
+      <button class="announce__close" type="button" data-announce-close aria-label="Dismiss announcement">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      </button>
     </div>
   </div>
 

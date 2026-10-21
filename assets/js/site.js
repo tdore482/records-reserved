@@ -25,6 +25,31 @@
     });
   }
 
+  /* ---------- Dismissible announcement bar ----------
+     The bar can be closed for good. The choice is kept in localStorage and a
+     small guard in the page head hides the bar before the first paint, so a
+     dismissed bar never comes back on the next page or the next visit. */
+
+  var announce = document.querySelector("[data-announce]");
+
+  if (announce) {
+    var announceClose = announce.querySelector("[data-announce-close]");
+
+    if (announceClose) {
+      announceClose.addEventListener("click", function () {
+        try {
+          window.localStorage.setItem("rr-announce-dismissed", "1");
+        } catch (error) {
+          /* storage blocked: the bar still closes for this page view */
+        }
+        document.documentElement.classList.add("announce-dismissed");
+        announce.remove();
+        /* the floating nav hangs below the bar and re-reads its height on scroll */
+        window.dispatchEvent(new Event("scroll"));
+      });
+    }
+  }
+
   /* ---------- Scroll reveals (IntersectionObserver only) ---------- */
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
