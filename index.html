@@ -44,17 +44,8 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Announcement -->
-  <div class="announce">
-    <div class="announce__inner">
-      <span class="announce__tag">Free trial</span>
-      <span>Your first <strong>7 days are on us</strong>. Every feature, no card needed.</span>
-      <a href="https://mwkpos.vercel.app" target="_blank" rel="noopener">Start now</a>
-    </div>
-  </div>
-
   <!-- Header -->
-  <header class="site-header">
+  <header class="site-header site-header--overlay">
     <div class="container nav">
       <a class="nav__brand" href="index.html" aria-label="Records Reserved home">
         <img src="assets/img/logo-black.png" alt="Records Reserved" width="160" height="34">
@@ -76,19 +67,31 @@
   <main id="main">
 
     <!-- Hero -->
-    <section class="hero hero--friendly hero--image">
-      <div class="hero__bg" aria-hidden="true">
-        <img class="hero__bg-img" src="assets/img/HERO-SECTION.png" alt="Records Reserved platform preview" width="1920" height="1080" fetchpriority="high" decoding="async">
+    <section class="lp-hero" aria-labelledby="hero-title">
+      <div class="lp-hero__bg" aria-hidden="true">
+        <img class="lp-hero__img" src="assets/img/HERO-SECTION.png" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
       </div>
-      <div class="container hero__inner hero__inner--center hero__inner--on-image">
-        <h1 class="h-hero h-hero--two-line">One calm place for your<br>business's records</h1>
-        <p class="lede">Records Reserved is the point-of-sale and business management platform for shops, workshops, salons and hire fleets. Choose your business type when you sign up: the catalogue, units and SKU format arrive already shaped around your trade. Thirty suggestions to start from; yours does not need to be one of them.</p>
-        <div class="hero__actions">
-          <a class="btn btn--terra" href="https://mwkpos.vercel.app" target="_blank" rel="noopener">Start your 7 free days →</a>
-          <a class="btn btn--ghost-on-dark" href="features.html">See what it does</a>
+
+      <div class="lp-hero__content">
+        <p class="lp-badge">
+          <span class="lp-badge__faces" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+          <span>Free for 7 days. Every feature, no card needed.</span>
+        </p>
+        <h1 class="lp-hero__title" id="hero-title">One calm place for your<br>business's records</h1>
+        <p class="lp-hero__lede">Records Reserved is the point-of-sale and business management platform for shops, workshops, salons and hire fleets. Choose your business type when you sign up: the catalogue, units and SKU format arrive already shaped around your trade. Thirty suggestions to start from; yours does not need to be one of them.</p>
+        <div class="lp-hero__actions">
+          <a class="lp-btn lp-btn--dark" href="https://mwkpos.vercel.app" target="_blank" rel="noopener">Start your 7 free days →</a>
+          <a class="lp-btn lp-btn--glass" href="features.html">See what it does</a>
         </div>
-        <p class="hero__note">Runs in the browser on the phone in your pocket or the desktop in the office. No special hardware. No card to begin.</p>
+        <p class="lp-hero__note">Runs in the browser on the phone in your pocket or the desktop in the office. No special hardware. No card to begin.</p>
       </div>
+
+      <ul class="lp-stats" aria-label="Records Reserved at a glance">
+        <li><strong>30</strong><span>Trades to start from</span></li>
+        <li><strong>3</strong><span>Ways to sell</span></li>
+        <li><strong>7</strong><span>Free days to try</span></li>
+        <li><strong>1</strong><span>Place for every record</span></li>
+      </ul>
     </section>
 
     <!-- Hero media collage -->
@@ -439,6 +442,15 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      var h = document.querySelector('.site-header--overlay');
+      if (!h) return;
+      var f = function () { h.classList.toggle('is-scrolled', window.scrollY > 24); };
+      f();
+      addEventListener('scroll', f, { passive: true });
+    })();
+  </script>
   <script src="assets/js/site.js" defer></script>
 </body>
 </html>
