@@ -1,0 +1,10 @@
+# Records Reserved - marketing site
+# https://records-reserved.vercel.app/
+
+User-agent: *
+Allow: /
+
+# Nothing on this site is private, but the enquiry endpoint is not ours to index.
+Disallow: /api/
+
+Sitemap: https://records-reserved.vercel.app/sitemap.xml

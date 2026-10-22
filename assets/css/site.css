@@ -542,6 +542,7 @@ html.announce-dismissed [data-announce] {
   transition: background 160ms ease, color 160ms ease, border-color 160ms ease,
     transform 120ms ease;
   white-space: nowrap;
+  max-width: 100%;
 }
 
 .btn:active {
@@ -810,17 +811,26 @@ html.announce-dismissed [data-announce] {
   letter-spacing: -0.02em;
 }
 
+/* The glow is a decorative overlay on the page hero. It used to sit at
+   inset -10% on both sides, which pushed the document 10% wider than the
+   viewport and made every inner page scroll sideways. It is clipped to the
+   hero instead, and the gradient is widened to keep the same spread. */
 .hero::before {
   content: "";
   position: absolute;
-  inset: -20% -10% auto;
+  inset: -20% 0 auto;
   height: 70%;
   background: radial-gradient(
-    50% 60% at 50% 40%,
+    66% 60% at 50% 40%,
     rgba(196, 102, 59, 0.05),
     transparent 70%
   );
   pointer-events: none;
+}
+
+.hero--page,
+.hero--friendly {
+  overflow-x: clip;
 }
 
 .hero__inner {
@@ -883,11 +893,18 @@ html.announce-dismissed [data-announce] {
   height: 100%;
 }
 
+.hero-media__side picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-media__main img,
 .hero-media__side img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 38%;
 }
 
 .hero-media__side {
@@ -896,51 +913,6 @@ html.announce-dismissed [data-announce] {
   border: 1px solid var(--line);
   background: var(--surface);
   min-height: 160px;
-}
-
-.hero-media__receipt {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  background: var(--surface);
-  padding: 20px 22px;
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  line-height: 1.7;
-  color: var(--ink-soft);
-}
-
-.hero-media__receipt .r-head {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px dashed var(--line-strong);
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  color: var(--muted);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.hero-media__receipt .r-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.hero-media__receipt .r-total {
-  border-top: 1px dashed var(--line-strong);
-  margin-top: 10px;
-  padding-top: 10px;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.hero-media__receipt .r-paid {
-  margin-top: 8px;
-  color: var(--green-ink);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 /* ---------- Trade strip ---------- */
@@ -1077,6 +1049,12 @@ html.announce-dismissed [data-announce] {
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
+}
+
+.bento__card--media .bento__media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .bento__card--media .bento__media img {
@@ -1349,7 +1327,7 @@ html.announce-dismissed [data-announce] {
   background: var(--band);
   color: var(--on-band);
   border-radius: var(--radius-lg);
-  padding: clamp(44px, 6vw, 80px);
+  padding: clamp(26px, 6vw, 80px);
 }
 
 .band-dark h2,
@@ -2521,6 +2499,13 @@ table.compare tr:last-child td {
     grid-template-columns: 1fr;
   }
 
+  /* A button label must be allowed to break: at 320px the content column is
+     only ~190px wide and a single-line label pushed the page sideways. */
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
+
   .hero__actions .btn,
   .cta-band__actions .btn {
     width: 100%;
@@ -2530,6 +2515,33 @@ table.compare tr:last-child td {
   .plan__note {
     min-height: 0;
   }
+}
+
+/* ---------- Overflow safety ----------
+   Grid and flex children default to min-width:auto, so a single long word or
+   a nowrap button can force a track wider than its container and push the
+   whole document sideways. Letting tracks shrink below their content stops
+   that at the source instead of hiding it. */
+.split > *,
+.security-grid > *,
+.contact-grid > *,
+.feature-block > *,
+.industry-grid > *,
+.steps > *,
+.plans > *,
+.modes > *,
+.bento > *,
+.form-grid > *,
+.footer-grid > *,
+.spec-list > * {
+  min-width: 0;
+}
+
+/* Screenshots are wider than 4:3, so they get their own ratio rather than
+   being cropped by object-fit: cover. */
+.split__media--wide picture,
+.split__media--wide img {
+  aspect-ratio: 16 / 9;
 }
 
 

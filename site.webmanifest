@@ -1,0 +1,47 @@
+{
+  "name": "Records Reserved",
+  "short_name": "Records Reserved",
+  "description": "Point of sale, inventory, services and hire: one record for the whole business.",
+  "start_url": "/",
+  "scope": "/",
+  "id": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#1c1b19",
+  "theme_color": "#1c1b19",
+  "categories": ["business", "productivity", "shopping"],
+  "icons": [
+    {
+      "src": "/assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Features",
+      "url": "/features.html"
+    },
+    {
+      "name": "Pricing",
+      "url": "/pricing.html"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact.html"
+    }
+  ]
+}
