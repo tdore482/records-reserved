@@ -19,10 +19,12 @@
   "use strict";
 
   var CONFIG = {
-    gtmId: "",
-    ga4Id: "",
+    /* GTM loads GA4 through the container. The GA4 ID below is kept as a
+       fallback and only loads if gtmId is ever cleared. */
+    gtmId: "GTM-5LJRX2ZL",
+    ga4Id: "G-V3QF1J224D",
     clarityId: "",
-    debug: true,
+    debug: false,
     trackScrollDepth: true,
   };
 
