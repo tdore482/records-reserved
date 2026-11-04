@@ -29,14 +29,14 @@
   <meta name="twitter:image" content="https://records-reserved.vercel.app/assets/img/og-cover.png">
   <meta name="twitter:image:alt" content="Records Reserved - one point-of-sale platform for the till, the stock room and the books">
   <meta name="theme-color" content="#1c1b19">
-  <link rel="icon" type="image/png" href="assets/img/logo-black.png">
-  <link rel="apple-touch-icon" href="assets/img/icon-180.png">
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="preload" as="image" type="image/webp" href="assets/img/hero-1280.webp" imagesrcset="assets/img/hero-640.webp 640w, assets/img/hero-960.webp 960w, assets/img/hero-1280.webp 1280w, assets/img/hero-1774.webp 1774w" imagesizes="100vw" fetchpriority="high">
+  <link rel="icon" type="image/png" href="/assets/img/logo-black.png">
+  <link rel="apple-touch-icon" href="/assets/img/icon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" as="image" type="image/webp" href="/assets/img/hero-1280.webp" imagesrcset="/assets/img/hero-640.webp 640w, /assets/img/hero-960.webp 960w, /assets/img/hero-1280.webp 1280w, /assets/img/hero-1774.webp 1774w" imagesizes="100vw" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -153,7 +153,7 @@
               "price": "50000",
               "priceCurrency": "MWK",
               "description": "Full terminal, catalogue, services and rentals, loyalty, multiple locations, expenses and full reports, staff accounts and roles.",
-              "url": "https://records-reserved.vercel.app/pricing.html",
+              "url": "https://records-reserved.vercel.app/pricing",
               "availability": "https://schema.org/InStock"
             },
             {
@@ -162,7 +162,7 @@
               "price": "75000",
               "priceCurrency": "MWK",
               "description": "Adds multiple businesses under one account with dedicated onboarding.",
-              "url": "https://records-reserved.vercel.app/pricing.html",
+              "url": "https://records-reserved.vercel.app/pricing",
               "availability": "https://schema.org/InStock"
             }
           ]
@@ -244,15 +244,15 @@
   <!-- Header -->
   <header class="site-header site-header--overlay">
     <div class="container nav">
-      <a class="nav__brand" href="index.html" aria-label="Records Reserved home">
-        <img src="assets/img/logo-black.png" alt="Records Reserved" width="627" height="225">
+      <a class="nav__brand" href="/" aria-label="Records Reserved home">
+        <img src="/assets/img/logo-black.png" alt="Records Reserved" width="627" height="225">
       </a>
       <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span></button>
       <ul class="nav__links">
-        <li><a href="features.html">Features</a></li>
-        <li><a href="industries.html">Industries</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/industries">Industries</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
       <div class="nav__actions">
         <a class="nav__login" href="https://mwkpos.vercel.app" target="_blank" rel="noopener">Sign in</a>
@@ -267,9 +267,9 @@
     <section class="lp-hero" aria-labelledby="hero-title">
       <div class="lp-hero__bg" aria-hidden="true">
         <picture>
-          <source type="image/webp" srcset="assets/img/hero-640.webp 640w, assets/img/hero-960.webp 960w, assets/img/hero-1280.webp 1280w, assets/img/hero-1774.webp 1774w" sizes="100vw">
-          <source type="image/jpeg" srcset="assets/img/hero-640.jpg 640w, assets/img/hero-960.jpg 960w, assets/img/hero-1280.jpg 1280w, assets/img/hero-1774.jpg 1774w" sizes="100vw">
-          <img class="lp-hero__img" src="assets/img/hero-1280.jpg" width="1280" height="640" alt="" fetchpriority="high" decoding="async">
+          <source type="image/webp" srcset="/assets/img/hero-640.webp 640w, /assets/img/hero-960.webp 960w, /assets/img/hero-1280.webp 1280w, /assets/img/hero-1774.webp 1774w" sizes="100vw">
+          <source type="image/jpeg" srcset="/assets/img/hero-640.jpg 640w, /assets/img/hero-960.jpg 960w, /assets/img/hero-1280.jpg 1280w, /assets/img/hero-1774.jpg 1774w" sizes="100vw">
+          <img class="lp-hero__img" src="/assets/img/hero-1280.jpg" width="1280" height="640" alt="" fetchpriority="high" decoding="async">
         </picture>
       </div>
 
@@ -278,7 +278,7 @@
         <p class="lp-hero__lede">One platform. Every business. Records Reserved simplifies sales, stock and business management with tools tailored to your trade&mdash;ready from day one.</p>
         <div class="lp-hero__actions">
           <a class="lp-btn lp-btn--terra" href="https://mwkpos.vercel.app" target="_blank" rel="noopener">Start your 7 free days<svg class="lp-cta__send" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"/></svg></a>
-          <a class="lp-btn lp-btn--glass" href="features.html">See all features</a>
+          <a class="lp-btn lp-btn--glass" href="/features">See all features</a>
         </div>
       </div>
 
@@ -369,8 +369,8 @@
           <article class="bento__card bento__card--wide bento__card--media reveal">
             <div class="bento__media">
               <picture>
-                <source type="image/webp" srcset="assets/img/saas-800.webp 800w, assets/img/saas-1600.webp 1600w" sizes="(max-width: 760px) 100vw, (max-width: 1100px) 60vw, 640px">
-                <img src="assets/img/saas.jpg" alt="The Records Reserved dashboard showing revenue metrics and recent activity" width="1600" height="900" loading="lazy" decoding="async">
+                <source type="image/webp" srcset="/assets/img/saas-800.webp 800w, /assets/img/saas-1600.webp 1600w" sizes="(max-width: 760px) 100vw, (max-width: 1100px) 60vw, 640px">
+                <img src="/assets/img/saas.jpg" alt="The Records Reserved dashboard showing revenue metrics and recent activity" width="1600" height="900" loading="lazy" decoding="async">
               </picture>
             </div>
             <div class="bento__body">
@@ -429,16 +429,16 @@
       <div class="container split reveal">
         <figure class="split__media">
           <picture>
-            <source type="image/webp" srcset="assets/img/shop-owner-640.webp 640w, assets/img/shop-owner-1280.webp 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
-            <source type="image/jpeg" srcset="assets/img/shop-owner-640.jpg 640w, assets/img/shop-owner-1280.jpg 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
-            <img src="assets/img/shop-owner.jpg" alt="A shop owner running the counter of a small business" width="640" height="480" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="/assets/img/shop-owner-640.webp 640w, /assets/img/shop-owner-1280.webp 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
+            <source type="image/jpeg" srcset="/assets/img/shop-owner-640.jpg 640w, /assets/img/shop-owner-1280.jpg 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
+            <img src="/assets/img/shop-owner.jpg" alt="A shop owner running the counter of a small business" width="640" height="480" loading="lazy" decoding="async">
           </picture>
         </figure>
         <div class="split__body">
           <div class="tag-row"><span class="tag tag--green">For shops</span></div>
           <h2 class="h-section">For everything you put on a shelf and count.</h2>
           <p>Bakeries, groceries, farm produce, pharmacies, fashion rails, electronics benches. Track each item at each location, get warned before you run dry, and reconcile the count against a movement ledger that never quietly forgets a sale.</p>
-          <a class="link-terra link-arrow" href="industries.html">See POS software for your trade</a>
+          <a class="link-terra link-arrow" href="/industries">See POS software for your trade</a>
         </div>
       </div>
     </section>
@@ -448,16 +448,16 @@
       <div class="container split split--reverse reveal">
         <figure class="split__media">
           <picture>
-            <source type="image/webp" srcset="assets/img/hardware-aisle-640.webp 640w, assets/img/hardware-aisle-1280.webp 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
-            <source type="image/jpeg" srcset="assets/img/hardware-aisle-640.jpg 640w, assets/img/hardware-aisle-1280.jpg 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
-            <img src="assets/img/hardware-aisle.jpg" alt="A shop assistant helping a customer pick a product off a hardware store aisle" width="640" height="480" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="/assets/img/hardware-aisle-640.webp 640w, /assets/img/hardware-aisle-1280.webp 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
+            <source type="image/jpeg" srcset="/assets/img/hardware-aisle-640.jpg 640w, /assets/img/hardware-aisle-1280.jpg 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
+            <img src="/assets/img/hardware-aisle.jpg" alt="A shop assistant helping a customer pick a product off a hardware store aisle" width="640" height="480" loading="lazy" decoding="async">
           </picture>
         </figure>
         <div class="split__body">
           <div class="tag-row"><span class="tag tag--blue">For services</span></div>
           <h2 class="h-section">For the work you do, not just the goods you move.</h2>
           <p>Salons, repair benches, cleaning crews, photography studios, consultancies, car washes and catering teams. Put your services on the same catalogue as your products, bill them at the till, and watch which jobs actually earn.</p>
-          <a class="link-terra link-arrow" href="industries.html#services">See POS software for services and bookings</a>
+          <a class="link-terra link-arrow" href="/industries#services">See POS software for services and bookings</a>
         </div>
       </div>
     </section>
@@ -467,16 +467,16 @@
       <div class="container split reveal">
         <figure class="split__media">
           <picture>
-            <source type="image/webp" srcset="assets/img/car-rental-640.webp 640w, assets/img/car-rental-1280.webp 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
-            <source type="image/jpeg" srcset="assets/img/car-rental-640.jpg 640w, assets/img/car-rental-1280.jpg 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
-            <img src="assets/img/car-rental.jpg" alt="A car rental showroom with vehicles ready for hire" width="640" height="480" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="/assets/img/car-rental-640.webp 640w, /assets/img/car-rental-1280.webp 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
+            <source type="image/jpeg" srcset="/assets/img/car-rental-640.jpg 640w, /assets/img/car-rental-1280.jpg 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
+            <img src="/assets/img/car-rental.jpg" alt="A car rental showroom with vehicles ready for hire" width="640" height="480" loading="lazy" decoding="async">
           </picture>
         </figure>
         <div class="split__body">
           <div class="tag-row"><span class="tag tag--amber">For hire fleets</span></div>
           <h2 class="h-section">For the assets that come back.</h2>
           <p>Equipment hire, event decor, attire and costumes, vehicles. Price each asset by the hour, day, week or month. Hold the deposit, track the unit from reserved to on hire to returned, and settle late fees and damage at the counter when it comes home.</p>
-          <a class="link-terra link-arrow" href="industries.html#rentals">See POS software for equipment and vehicle hire</a>
+          <a class="link-terra link-arrow" href="/industries#rentals">See POS software for equipment and vehicle hire</a>
         </div>
       </div>
     </section>
@@ -526,7 +526,7 @@
               <h2 class="h-section">Enforced in the database, not just the interface.</h2>
               <p class="lede" style="margin-top:20px">Hiding a button is not a permission model. Every row of your data carries your business identifier, and the database refuses to answer for anyone else, even if a request is crafted by hand and sent straight to the server.</p>
               <div style="margin-top:32px">
-                <a class="btn btn--on-dark" href="features.html#security">How the security boundaries work</a>
+                <a class="btn btn--on-dark" href="/features#security">How the security boundaries work</a>
               </div>
             </div>
             <ul class="security-list">
@@ -557,16 +557,16 @@
       <div class="container split split--reverse reveal">
         <figure class="split__media">
           <picture>
-            <source type="image/webp" srcset="assets/img/butcher-640.webp 640w, assets/img/butcher-1280.webp 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
-            <source type="image/jpeg" srcset="assets/img/butcher-640.jpg 640w, assets/img/butcher-1280.jpg 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
-            <img src="assets/img/butcher.jpg" alt="A butcher serving customers over the counter of a busy shop" width="640" height="480" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="/assets/img/butcher-640.webp 640w, /assets/img/butcher-1280.webp 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
+            <source type="image/jpeg" srcset="/assets/img/butcher-640.jpg 640w, /assets/img/butcher-1280.jpg 1280w" sizes="(max-width: 920px) 100vw, (max-width: 1280px) 46vw, 560px">
+            <img src="/assets/img/butcher.jpg" alt="A butcher serving customers over the counter of a busy shop" width="640" height="480" loading="lazy" decoding="async">
           </picture>
         </figure>
         <div class="split__body">
           <div class="tag-row"><span class="tag">Multi-location</span><span class="tag">Staff &amp; roles</span><span class="tag">Installs as an app</span></div>
           <h2 class="h-section">One branch or ten. The same record either way.</h2>
           <p>Assign staff to the locations they work. Compare branches on the dashboard. Move stock between them. The platform installs to a phone or desktop home screen and opens full screen. The counter staff get a till, not a website.</p>
-          <a class="link-terra link-arrow" href="pricing.html">Compare plans and pricing</a>
+          <a class="link-terra link-arrow" href="/pricing">Compare plans and pricing</a>
         </div>
       </div>
     </section>
@@ -593,7 +593,7 @@
           </details>
           <details>
             <summary>How much does Records Reserved cost?</summary>
-            <p>Pro is K50,000 a month and Enterprise is K75,000 a month. Both start with seven free days and no card is needed. <a class="link-terra" href="pricing.html">Compare the plans</a>.</p>
+            <p>Pro is K50,000 a month and Enterprise is K75,000 a month. Both start with seven free days and no card is needed. <a class="link-terra" href="/pricing">Compare the plans</a>.</p>
           </details>
           <details>
             <summary>Does it need special hardware?</summary>
@@ -620,7 +620,7 @@
           </div>
           <div class="cta-band__actions">
             <a class="btn btn--terra" href="https://mwkpos.vercel.app" target="_blank" rel="noopener">Start now, no card</a>
-            <a class="btn btn--ghost-on-dark" href="pricing.html">See what happens after the free trial</a>
+            <a class="btn btn--ghost-on-dark" href="/pricing">See what happens after the free trial</a>
           </div>
         </div>
       </div>
@@ -633,40 +633,40 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/img/logo-terracotta.png" alt="Records Reserved" width="631" height="233">
+          <img src="/assets/img/logo-terracotta.png" alt="Records Reserved" width="631" height="233">
           <p>Point of sale, inventory, services and hire: one record for the whole business. Built for trades across Malawi and beyond.</p>
         </div>
         <div class="footer-col">
           <h4>Platform</h4>
           <ul>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="industries.html">Industries</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="/features">Features</a></li>
+            <li><a href="/industries">Industries</a></li>
+            <li><a href="/pricing">Pricing</a></li>
             <li><a href="https://mwkpos.vercel.app" target="_blank" rel="noopener">Open the platform</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Business types</h4>
           <ul>
-            <li><a href="industries.html#products">POS for products and retail</a></li>
-            <li><a href="industries.html#services">POS for services and bookings</a></li>
-            <li><a href="industries.html#rentals">POS for rentals and hire</a></li>
-            <li><a href="industries.html#other">Ask about a trade not listed</a></li>
+            <li><a href="/industries#products">POS for products and retail</a></li>
+            <li><a href="/industries#services">POS for services and bookings</a></li>
+            <li><a href="/industries#rentals">POS for rentals and hire</a></li>
+            <li><a href="/industries#other">Ask about a trade not listed</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
-          <a class="btn btn--footer" href="contact.html">Sales &amp; support</a>
+          <a class="btn btn--footer" href="/contact">Sales &amp; support</a>
           <ul>
             <li><a href="mailto:kohelethdigitalsolutions@gmail.com">kohelethdigitalsolutions@gmail.com</a></li>
             <li><a href="tel:+265998814732">+265 998 814 732</a></li>
-            <li><a href="contact.html">Send an enquiry</a></li>
+            <li><a href="/contact">Send an enquiry</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <span>&copy; 2026 Records Reserved. All rights reserved.</span>
-        <span><a href="https://mwkpos.vercel.app/terms" target="_blank" rel="noopener">Terms</a> · <a href="contact.html">Contact</a></span>
+        <span><a href="https://mwkpos.vercel.app/terms" target="_blank" rel="noopener">Terms</a> · <a href="/contact">Contact</a></span>
       </div>
     </div>
   </footer>
@@ -687,7 +687,7 @@
       addEventListener('resize', f);
     })();
   </script>
-  <script src="assets/js/analytics.js" defer></script>
-  <script src="assets/js/site.js" defer></script>
+  <script src="/assets/js/analytics.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
 </body>
 </html>

@@ -33,15 +33,15 @@
   "shortcuts": [
     {
       "name": "Features",
-      "url": "/features.html"
+      "url": "/features"
     },
     {
       "name": "Pricing",
-      "url": "/pricing.html"
+      "url": "/pricing"
     },
     {
       "name": "Contact",
-      "url": "/contact.html"
+      "url": "/contact"
     }
   ]
 }

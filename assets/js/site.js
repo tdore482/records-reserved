@@ -123,7 +123,7 @@
 
   /* ---------- Contact form: posts to FormSubmit, delivered to support ----------
      Static site: FormSubmit relays the submission to our inbox. The form
-     action (which carries the inbox address) lives in contact.html. */
+     action (which carries the inbox address) lives in contact page. */
 
   var form = document.querySelector("#contact-form");
 

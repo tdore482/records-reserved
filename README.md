@@ -4,6 +4,8 @@ The public landing site for **Records Reserved**, a multi-tenant POS and busines
 
 Static HTML/CSS/JS — no build step. Open `index.html` or serve the folder with any static server.
 
+Pages are served at extensionless URLs (`/features`, `/pricing`, `/contact`); Vercel redirects the old `.html` paths automatically via `cleanUrls`.
+
 ## Pages
 
 | Page | File |
