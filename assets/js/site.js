@@ -185,6 +185,13 @@
         })
         .then(function (result) {
           if (result.success === true || result.success === "true") {
+            if (window.rrTrack) {
+              window.rrTrack("contact_form_success", {
+                form_id: form.id,
+                interest: interest,
+                business: business,
+              });
+            }
             form.reset();
             if (status) {
               status.textContent =
@@ -197,6 +204,13 @@
           }
         })
         .catch(function (error) {
+          if (window.rrTrack) {
+            window.rrTrack("contact_form_error", {
+              form_id: form.id,
+              interest: interest,
+              error: error && error.message ? error.message : "network error",
+            });
+          }
           if (status) {
             status.textContent =
               "That did not send (" + (error && error.message ? error.message : "network error") +
