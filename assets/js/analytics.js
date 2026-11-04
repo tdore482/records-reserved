@@ -22,7 +22,7 @@
     gtmId: "",
     ga4Id: "",
     clarityId: "",
-    debug: false,
+    debug: true,
     trackScrollDepth: true,
   };
 
