@@ -2,7 +2,7 @@
 
 The public landing site for **Records Reserved**, a multi-tenant POS and business management platform for shops, workshops, salons and hire fleets.
 
-Static HTML/CSS/JS — no build step. Open `index.html` or serve the folder with any static server.
+Static HTML/CSS/JS — no build step. Open `index.html` directly to preview styling, or serve the folder for working internal links (`python3 -m http.server 8080`).
 
 Pages are served at extensionless URLs (`/features`, `/pricing`, `/contact`); Vercel redirects the old `.html` paths automatically via `cleanUrls`.
 
@@ -68,5 +68,5 @@ All tracking is configured in one file: `assets/js/analytics.js`. Open it and fi
 
 ## Contact
 
-- kohelethdigitalsolutions@gmail.com
+- recordsreservedmw@gmail.com
 - +265 998 814 732

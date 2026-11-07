@@ -481,6 +481,18 @@ html.announce-dismissed [data-announce] {
   background: var(--surface);
   cursor: pointer;
   padding: 0;
+  transition: background-color 200ms ease, border-color 200ms ease,
+    transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav__toggle:hover {
+  background: var(--terra-tint);
+  border-color: var(--terra);
+  transform: translateY(-1px);
+}
+
+.nav__toggle:active {
+  transform: scale(0.96);
 }
 
 .nav__toggle span {
@@ -539,14 +551,21 @@ html.announce-dismissed [data-announce] {
   border: 1px solid transparent;
   text-decoration: none;
   cursor: pointer;
-  transition: background 160ms ease, color 160ms ease, border-color 160ms ease,
-    transform 120ms ease;
+  transition: background-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
   white-space: nowrap;
   max-width: 100%;
 }
 
+.btn:hover {
+  transform: translateY(-2px);
+}
+
 .btn:active {
-  transform: scale(0.98);
+  transform: translateY(0) scale(0.97);
 }
 
 .btn--primary {
@@ -557,6 +576,7 @@ html.announce-dismissed [data-announce] {
 .btn--primary:hover {
   background: #33312d;
   color: #fff;
+  box-shadow: 0 12px 24px -12px rgba(28, 27, 25, 0.65);
 }
 
 .btn--terra {
@@ -567,6 +587,7 @@ html.announce-dismissed [data-announce] {
 .btn--terra:hover {
   background: var(--terra-deep);
   color: #fff;
+  box-shadow: 0 14px 28px -12px rgba(196, 102, 59, 0.7);
 }
 
 .btn--ghost {
@@ -576,8 +597,9 @@ html.announce-dismissed [data-announce] {
 }
 
 .btn--ghost:hover {
-  border-color: var(--ink);
-  color: var(--ink);
+  background: var(--terra-tint);
+  border-color: var(--terra);
+  color: var(--terra-deep);
 }
 
 .btn--on-dark {
@@ -588,6 +610,7 @@ html.announce-dismissed [data-announce] {
 .btn--on-dark:hover {
   background: #fff;
   color: var(--ink);
+  box-shadow: 0 12px 24px -12px rgba(28, 27, 25, 0.5);
 }
 
 .btn--ghost-on-dark {
@@ -597,6 +620,7 @@ html.announce-dismissed [data-announce] {
 }
 
 .btn--ghost-on-dark:hover {
+  background: rgba(245, 242, 237, 0.12);
   border-color: var(--on-band);
   color: #fff;
 }
@@ -615,6 +639,30 @@ html.announce-dismissed [data-announce] {
 .site-header--overlay .nav__login {
   position: relative;
   overflow: hidden;
+}
+
+/* Sheen: a soft band of light sweeps across the button on hover. */
+.btn::before,
+.lp-btn::before,
+.site-header--overlay .nav__login::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    115deg,
+    transparent 32%,
+    rgba(255, 255, 255, 0.38) 50%,
+    transparent 68%
+  );
+  transform: translateX(-130%);
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.btn:hover::before,
+.lp-btn:hover::before,
+.site-header--overlay .nav__login:hover::before {
+  transform: translateX(130%);
 }
 
 .btn-splash {
@@ -1712,6 +1760,7 @@ html.announce-dismissed [data-announce] {
 .plan--dark .btn:hover {
   background: #f5e8df;
   border-color: #f5e8df;
+  box-shadow: 0 12px 24px -12px rgba(28, 27, 25, 0.55);
 }
 
 .plan--terra .btn--ghost,
@@ -2108,6 +2157,7 @@ table.compare tr:last-child td {
 .wa-cta:hover {
   background: #064c45;
   border-color: #064c45;
+  box-shadow: 0 14px 28px -12px rgba(6, 61, 42, 0.6);
 }
 
 .wa-cta svg {
@@ -2265,17 +2315,20 @@ table.compare tr:last-child td {
   border: 1px solid var(--band-line);
   border-radius: 999px;
   color: var(--on-band-muted);
-  transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease,
+    transform 160ms ease;
 }
 
 .footer-social a:hover,
 .footer-social a:focus-visible {
-  color: var(--ink);
-  background: var(--on-band);
-  border-color: var(--on-band);
+  color: #fff;
+  background: var(--terra);
+  border-color: var(--terra);
+  transform: translateY(-2px);
 }
 
 .footer-social svg {
+  display: block;
   width: 17px;
   height: 17px;
   fill: currentColor;
@@ -2329,6 +2382,7 @@ table.compare tr:last-child td {
 .footer-col .btn--footer:hover {
   background: #fff;
   color: var(--ink);
+  box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.55);
 }
 
 .footer-bottom {
@@ -2684,13 +2738,23 @@ table.compare tr:last-child td {
   background: #fff;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-sm);
-  transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 120ms ease;
+  transition: background-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .site-header--overlay .nav__login:hover {
   background: var(--terra-deep);
   border-color: var(--terra-deep);
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -12px rgba(163, 79, 42, 0.7);
+}
+
+.site-header--overlay .nav__login:active {
+  transform: translateY(0) scale(0.97);
 }
 
 @media (min-width: 921px) {
@@ -2822,11 +2886,18 @@ table.compare tr:last-child td {
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: background 160ms ease, border-color 160ms ease, transform 120ms ease;
+  transition: background-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lp-btn:hover {
+  transform: translateY(-2px);
 }
 
 .lp-btn:active {
-  transform: scale(0.98);
+  transform: translateY(0) scale(0.97);
 }
 
 /* the send arrow on the hero call to action is the same mark as the one on
@@ -2847,6 +2918,7 @@ table.compare tr:last-child td {
 .lp-btn--terra:hover {
   background: var(--lp-cta-hover);
   color: #fff;
+  box-shadow: 0 16px 32px -14px rgba(196, 102, 59, 0.75);
 }
 
 .lp-btn--glass {
@@ -2860,6 +2932,7 @@ table.compare tr:last-child td {
 .lp-btn--glass:hover {
   background: rgba(255, 255, 255, 0.7);
   color: var(--ink);
+  box-shadow: 0 14px 28px -14px rgba(28, 27, 25, 0.45);
 }
 
 /* ---------- Responsive ---------- */

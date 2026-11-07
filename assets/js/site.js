@@ -130,7 +130,7 @@
   if (form) {
     var status = form.querySelector(".form-status");
     var button = form.querySelector('button[type="submit"]');
-    var SUPPORT_EMAIL = "kohelethdigitalsolutions@gmail.com";
+    var SUPPORT_EMAIL = "recordsreservedmw@gmail.com";
 
     form.addEventListener("submit", function (event) {
       event.preventDefault();
