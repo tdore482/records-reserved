@@ -2233,6 +2233,54 @@ table.compare tr:last-child td {
   line-height: 1.6;
 }
 
+.footer-social {
+  margin-top: 24px;
+}
+
+.footer-social h4 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin: 0 0 14px;
+}
+
+.footer-social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--band-line);
+  border-radius: 999px;
+  color: var(--on-band-muted);
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  color: var(--ink);
+  background: var(--on-band);
+  border-color: var(--on-band);
+}
+
+.footer-social svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+}
+
 .footer-col h4 {
   font-family: var(--font-mono);
   font-size: 11px;
